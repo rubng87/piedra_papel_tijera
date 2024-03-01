@@ -40,13 +40,20 @@ if (!isNaN(eleccionUsuario)) {
     // Lógica del juego
     if (eleccionPC == eleccionUsuario) {
         alert("¡Empate!")
-    } else if ((eleccionUsuario == 1 && eleccionPC == 3) ||
-     (eleccionUsuario == 2 && eleccionPC ==1) ||
-     (eleccionUsuario == 3 && eleccionPC ==2)) {
+    } else if (
+     (eleccionUsuario == 1 && eleccionPC == 3) ||
+     (eleccionUsuario == 2 && eleccionPC == 1) ||
+     (eleccionUsuario == 3 && eleccionPC == 2)) {
         alert("¡Has ganado!")
     } else {
         alert("¡Has perdido")
     }
+
+    confirm("¿Quieres jugar de nuevo?")
+    
+    
+    alert("Pues juega de nuevo pulsando `F5` despues de aceptar esta pantalla")
+    
 
 } else {
     alert("¡¡ Hasta pronto, aprende a elegir en los 3 números !!");
