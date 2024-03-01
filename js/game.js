@@ -44,7 +44,9 @@ if (!isNaN(eleccionUsuario)) {
     } else if (eleccionUsuario == 3) {
     alert("Has elegido ✌️");
     } else {
-        alert("¡¡ Hasta pronto !!");
+     alert("¡¡ Hasta pronto !!");
+     return
+
     }
 
     //Elección de la máquina
