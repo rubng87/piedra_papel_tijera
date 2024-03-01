@@ -6,22 +6,24 @@
 
 //     let repeticion = confirm("Quieres jugar otra vez")
 //     if (!repeticion) {
-//     break;  
+//     break;
 //     }
-
 
 // } while (true);
 
-let reinicio = true
+let victorias = 0; //variables para marcador
+let empates = 0;
+let derrotas = 0;
+
+let reinicio = true;
 
 do {
-    game();
-    reinicio = confirm("Quieres jugar otra vez")
-} while (reinicio)
-
+  game();
+  reinicio = confirm("Quieres jugar otra vez");
+} while (reinicio);
 
 function game() {
-let mensajeInicial = `
+  let mensajeInicial = `
 PIEDRA, PAPEL I TIJERAS
 =======================
 
@@ -29,63 +31,74 @@ PIEDRA, PAPEL I TIJERAS
 2 <-- ✋
 3 <-- ✌️
 
-`
+`;
 
-let eleccionUsuario = Number(prompt(mensajeInicial))
-console.log("eleccion = ", eleccionUsuario);
-console.log(typeof(eleccionUsuario));
+  let eleccionUsuario = Number(prompt(mensajeInicial));
+  console.log("eleccion = ", eleccionUsuario);
+  console.log(typeof eleccionUsuario);
 
-// Elección del usuario
-if (!isNaN(eleccionUsuario)) {
+  // Elección del usuario
+  if (!isNaN(eleccionUsuario)) {
     if (eleccionUsuario == 1) {
-    alert("Has elegido ✊");
+      alert("Has elegido ✊");
     } else if (eleccionUsuario == 2) {
-    alert("Has elegido ✋");
+      alert("Has elegido ✋");
     } else if (eleccionUsuario == 3) {
-    alert("Has elegido ✌️");
+      alert("Has elegido ✌️");
     } else {
-     alert("¡¡ Hasta pronto !!");
-     return
-
+      alert("¡¡ Hasta pronto !!");
+      return;
     }
 
     //Elección de la máquina
-    let eleccionPC = getRandomInt(1, 4)
+    let eleccionPC = getRandomInt(1, 4);
     if (eleccionPC == 1) {
-        alert("El PC a elegido ✊");
+      alert("El PC a elegido ✊");
     } else if (eleccionPC == 2) {
-        alert("El PC a elegido ✋");
+      alert("El PC a elegido ✋");
     } else if (eleccionPC == 3) {
-        alert("El PC a elegido ✌️");
+      alert("El PC a elegido ✌️");
     }
 
     // Lógica del juego
     if (eleccionPC == eleccionUsuario) {
-        alert("¡Empate!")
+      alert("¡Empate!");
+      empates++;  //Poner como suma el contador
     } else if (
-     (eleccionUsuario == 1 && eleccionPC == 3) ||
-     (eleccionUsuario == 2 && eleccionPC == 1) ||
-     (eleccionUsuario == 3 && eleccionPC == 2)) {
-        alert("¡Has ganado!")
+      (eleccionUsuario == 1 && eleccionPC == 3) ||
+      (eleccionUsuario == 2 && eleccionPC == 1) ||
+      (eleccionUsuario == 3 && eleccionPC == 2)
+    ) {
+      alert("¡Has ganado!");
+      victorias++; //Poner como suma el contador
     } else {
-        alert("¡Has perdido")
+      alert("¡Has perdido");
+      derrotas++; //Poner como suma el contador
     }
-
-
-    } else {
+  } else {
     alert("¡¡ Hasta pronto, aprende a elegir en los 3 números !!");
+    return
+  }
+
+  // Aqui hacemos el marcador e indicamos donde tienen que salir.
+  let marcador = `
+  Marcador:
+
+  Victorias : ${victorias}
+  Empates : ${empates}
+  Derrotas : ${derrotas}
+ 
+  `
+  
+  alert(marcador)
 }
-
-}
-
-
 
 // if (eleccionUsuario == "1" || )
 
 function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min);
 }
 // Ejemplo: getRandomInt(1, 4) devolverá 1, 2 o 3 (todos incluidos).
 
