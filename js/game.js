@@ -1,6 +1,26 @@
 // JUEGO PIEDRA PAPEL O TIJERAS
 // version 0.1
+// Hacer que el juego se repite en bucle hasta que el jugador diga que no y entonces rompe el bucle del juego y se para.
+// do {
+//     game()
 
+//     let repeticion = confirm("Quieres jugar otra vez")
+//     if (!repeticion) {
+//     break;  
+//     }
+
+
+// } while (true);
+
+let reinicio = true
+
+do {
+    game();
+    reinicio = confirm("Quieres jugar otra vez")
+} while (reinicio)
+
+
+function game() {
 let mensajeInicial = `
 PIEDRA, PAPEL I TIJERAS
 =======================
@@ -49,15 +69,14 @@ if (!isNaN(eleccionUsuario)) {
         alert("¡Has perdido")
     }
 
-    confirm("¿Quieres jugar de nuevo?")
-    
-    
-    alert("Pues juega de nuevo pulsando `F5` despues de aceptar esta pantalla")
-    
 
-} else {
+    } else {
     alert("¡¡ Hasta pronto, aprende a elegir en los 3 números !!");
 }
+
+}
+
+
 
 // if (eleccionUsuario == "1" || )
 
